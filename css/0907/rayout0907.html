@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>rayout0907</title>
+	<style>
+		#wrap{border:1px red solid; width:900px; height:540px; margin:0 auto;}
+		.header{border:1px red solid; width:840px; height:111px; margin:0 auto;}
+		.content{border:1px red solid; width:840px; height:380px; margin:0 auto;}
+		.left{border:1px red solid; width:520px; height:368px; float:left;}
+		.right{border:1px red solid; width:300px; height:368px; float:right;}
+		.one{border:1px red solid; width:520px; height:150px;}
+		.grid{border:1px green solid; width:520px; height:200px;}
+		
+		*{margin:0; padding:0;}
+		ul{list-style:none;}
+		.one li{border:1px red solid;}
+		.one li.article{margin-left:0;}
+		.one li.article img{width:150px; float:left;}
+		.one li.article h1{font-size:28px;}
+		.one li{font-size:12px;}
+		
+		.grid{border:1px red solid; overflow:hidden;}
+		.grid ul{border:1px red solid; width:120%; height:50px;}
+		.grid li{border:1px red solid; width:160px; float:left; margin-right:30px; margin-bottom:10px;}
+		.grid li div{border:1px red solid; width:140px; height:50px; overflow:hidden; }
+		.grid li div img{height:100%; }
+		
+		
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<div class="header"></div>
+		<div class="content">
+			<div class="left">
+				<div class="one">
+					<ul>
+						<li class="article">
+							<h1>"朴대통령은 미친 여자… 지뢰 매설 南이 했을수도"
+							</h1>
+							
+							<img src="http://static.naver.net/newsstand/2015/0907/chosun/151252/001.jpg" alt="" />
+						</li>
+						<li>오늘의 주요기사</li>
+						<li>野 이용득, 金대표의 쇠파이프 발언에 "재벌 아들 티 내나"</li>
+						<li>대만 여행간 한국 남성, 풍경 찍는 척 여성 치마 속 '몰카'</li>
+						<li>"뭘 좀 알고 中 때려라" 美공화당 후보들에게 날아든 경고</li>
+						<li>불공정 행위 많이 저지른 대기업 2위는 SK, 1위는?</li>
+					</ul>
+				</div>
+				<div class="grid">
+					<ul>
+						<li>
+							<div><img src="http://static.naver.net/newsstand/2015/0907/joongangdaily/090112/004.jpg" alt="" /></div>
+							<p>text</p>
+						</li>
+						<li>
+							<div><img src="http://static.naver.net/newsstand/2015/0907/joongangdaily/090112/005.jpg" alt="" /></div>
+							<p>text</p>
+						</li>
+						<li>
+							<div><img src="http://static.naver.net/newsstand/2015/0907/joongangdaily/090112/006.jpg" alt="" /></div>
+							<p>text</p>
+						</li>
+						<li>
+							<div><img src="http://static.naver.net/newsstand/2015/0907/joongangdaily/090112/008.jpg" alt="" /></div>
+							<p>text</p>
+						</li>
+						<li>
+							<div><img src="http://static.naver.net/newsstand/2015/0907/joongangdaily/090112/009.jpg" alt="" /></div>
+							<p>text</p>
+						</li>
+						<li>
+							<div><img src="http://static.naver.net/newsstand/2015/0907/joongangdaily/090112/010.jpg" alt="" /></div>
+							<p>text</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="right"></div>
+		</div>
+	</div>
+</body>
+</html>

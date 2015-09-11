@@ -1,0 +1,17 @@
+/*reset*/
+*{margin:0; padding:0}
+ul,li{list-style:none;}
+/*option*/
+.border{border:1px red solid;}
+/*common*/
+* section{width:900px; height:540px; margin:0 auto;}
+.head{margin:0 30px; border-bottom:3px solid #545454; height:108px;}
+h1{padding: 20px 0 0 0;}
+.head .promotion{float:right;margin-top:40px;}
+.head ul li{display: inline-block;}
+
+.contents{margin-top: 14px; margin-left:40px;}
+.contents .first ul li{display:inline-block; margin-right:10px; position:relative;}
+.contents .first ul li p{width:257px; height:44px; background:black; opacity: 0.5; position:absolute; bottom:0px; margin-left:5px;}
+a{text-decoration:none; color:white; font:15px; font-weight:bold; line-height:150%}
+.contents .first ul li{width:267px; height: 173px;}

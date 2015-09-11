@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style>
+	
+	
+	div{border:1px red solid;
+	    height: 100px;
+	    width: 100px;
+	    }	
+	.see{background-color:#FF0000}
+	#to{background-color:yellow }
+	
+	ul.you{border:1px blue solid ;
+	   width: 300px;}
+	ul.you>li{background:green; border:1px red solid}
+	ul li ul li{border:2px pink dotted}
+	ul.you>li:first-child+li+li+li+li{background:#FFF}
+	ul li ul{display:none}
+	ul.you>li:hover ul{display:block}
+	ul.you>li:hover{color:blue}
+	
+	
+	</style>
+</head>
+<body>
+	<div></div>
+	<div class="see"></div>
+	<div id="to"></div>
+	
+	<ul class="you">
+		<li>text
+			<ul>
+				<li>text</li>
+				<li>text</li>
+				<li>text</li>
+				<li>text</li>
+				<li>text</li>
+			</ul>
+		</li>
+		<li>text</li>
+		<li>text
+			<ul>
+				<li>text</li>
+				<li>text</li>
+				<li>text</li>
+				<li>text</li>
+				<li>text</li>
+			</ul>
+		</li>
+		<li>text</li>
+		<li>text</li>
+	</ul>
+	
+	
+	
+	
+	
+</body>
+</html>
