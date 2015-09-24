@@ -1,0 +1,205 @@
+@charset "UTF-8";
+/*
+
+1.주석에대한설명
+    c :크롬
+    f :파폭
+    i7~i11 :익스 버전
+    이라칭함
+
+2.호환성과 이슈가 발생하는 부분에서는 줄바끔으로 작성
+
+*/
+/*init*/
+*{margin:0; padding:0}
+html,body{height:100%;}
+body{font-size:12px; font-family:Dotum,'돋움',Helvetica,AppleSDGothicNeo,sans-serif}
+fieldset{border:0 none;}
+img{vertical-align: top;}
+button,input[type="submit"]{cursor: pointer}
+a{text-decoration: none;}
+img{border: 0 none;}
+
+/*option*/
+.hide{font-size:0; width:0; height:0px; position: absolute; left:-9999px; top:-9999px;}
+.listNone{list-style: none;}
+.ct_wrap{margin:0 auto; width:980px;}
+.link_point{text-decoration: underline; color:#77c3cf; padding:0 10px; font-weight:bold}
+.icon-hart{background:url("../images/icon-hart.png") no-repeat; display:inline-block; *display:inline; *zoom:1; text-indent: -9999px; width:9px; height:8px; vertical-align: middle; margin:0 4px}
+
+.select_style{border:1px #F00 solid;  height:25px; border:1px #F00 solid; background:#2a3041; color:#FFF; line-height:25px; }
+.select_style ul{border:1px #F00 solid; background:#2a3041; display:none;}
+.select_style .fix_option{margin:0 10px; background: url("../images/icon_donw_arrow.png") no-repeat right center; white-space: nowrap; overflow:hidden; text-overflow:ellipsis; padding-right: 15px}
+
+.paging{text-align: center; margin:15px 0 47px;}
+.paging a{color:#999; border:1px #dedede solid; display:inline-block; *display: inline; *zoom:1; width:17px; height:17px; vertical-align: top; line-height:17px}
+.paging a.on{color:#F00; border-color:#F00; font-weight:bold}
+.paging a span{vertical-align: middle;}
+.paging .leftbtn,
+.paging .rightbtn{text-indent: -9999px;}
+
+/*layout*/
+
+
+/*topbar*/
+.topbar{height:40px; border-bottom:1px #a6a6a6 solid; background:url(../images/bg_topbg.png) repeat-x}
+.topbar fieldset{float:right;}
+.topbar fieldset input[type="submit"]{width:109px; height:48px; border:0; background:url(../images/btn_search.png) no-repeat; text-indent: -9999px}
+
+/* 호환성문제
+* line-height 로 간격높이를 주는것은 c,f 에서는 문제가없음
+* i8 부터는 input에 line-height로 높이가 반영이 안되기때문에 height값을 추가함.
+* i7 버전 부터는 vartical-align 설정이 수치반영이 다름으로 핵(*)을이용하여 재설정
+*/
+
+.topbar fieldset input[type="text"]{
+    line-height:23px;
+    height:23px;
+    vertical-align:4px;
+    *vertical-align:15px; /*i7 기본 반영 수치가 다름으로 핵을 이용하여 재설정*/
+    border-width:1px 0 0 1px;
+    border-style:solid;
+    border-color:#333;
+    width: 259px;
+    padding:0 10px;
+    margin-right:11px;
+}
+/*topbar END*/
+
+/*header*/
+
+/*
+* 상단부 검색버튼에 플룻영역이 하단 영역에 미침으로
+* clear:right 를이용하여 위 플룻영역에 영향을 받지 않토록함.
+* clear의경우 i7에서 시작지점이 다름으로 *margin-top 을이용하여 위치설정을 다시함.
+*/
+.header{
+    height:161px;
+    *margin-top:7px;
+    clear: right;
+    border-bottom:5px #12151f solid;
+}
+
+/*
+header에 마진겹침 현상이 발생함으로
+border:1px transparent solid;사용하여 해제함
+*/
+.header>div{border:1px transparent solid;height:100%}
+
+/*로고*/
+.header h1{margin-top:42px; float:left;}
+
+/*프로모션*/
+.header .promotion{width:280px; height:126px; float:right; background: #CCC; margin-top:23px; position:relative}
+.header .promotion li>div{position:absolute; width:100%; height:100%; left:0;top:0; display: none;}
+.header .promotion li.ative>div{display:block}
+
+/*
+* 프로모션의 컨텐츠가 텍스트량이 늘어나 디자인을 오버할수도 있다는 유지보수 가정하에
+*max-width  최대 값을 반영 하였고 그를 넘었을경우에는 overflow:hidden 으로 보이지 않게 설정합니다.
+*/
+
+.header .promotion li>div .tx-descript{
+    max-height:84px;
+    overflow:hidden;
+    width:130px;
+    position:absolute;
+    top:31px;
+    right:43px;
+    }
+
+
+.header .promotion li>a{float:right; clear: right; margin-top:8px; position:relative; z-index: 1;display:block; width: 11px; height:11px; background:url("../images/normal_btn_dottend_off.png") no-repeat; margin-right:15px}
+/*
+hover 선택자를 이용하여 백그라운드 교체함
+*/
+
+.header .promotion li>a:hover{background:url("../images/normal_btn_dottend_on.png") no-repeat; }
+.header .promotion li:first-child>a{margin-top:36px}
+.header .promotion li>div .tx-descript strong{display:block; margin-bottom:10px; font-size:18px; color:#77c3cf;}
+.header .promotion li>div .tx-descript p{font-size:11px; color:#a1a1a1; line-height:15px;}
+
+
+/*lnb*/
+.header .lnb li a{
+    /*
+    아래 경우는 a에 display:black를 줘야 text-indent가 안의 인라인요소인 span에게 적용됨으로 블록을선언함
+    또한 a 테그에게 background 로 이미지를 주었기때문에. 대체택스트를 사용할수없음으로 a안에 span로
+    해당 li의 컨탠츠 내용을 담음
+    */
+    display:block; text-indent: -9999px;
+}
+.header .lnb{clear: left; margin-top:133px}
+.header .lnb>ul>li {float:left; margin-left:74px;}
+.header .lnb>ul>li:first-child{margin-left:0}
+.header .lnb li a.creators{width:64px;height:11px;background:url("../images/cubebirdge/lnb_creators.png") no-repeat}
+.header .lnb li a.portfolioBox{width:93px;height:11px;background:url("../images/cubebirdge/lnb_protfoliobox.png") no-repeat}
+.header .lnb li a.productPlace{width:102px;height:11px;background:url("../images/cubebirdge/lnb_productplace.png") no-repeat}
+.header .lnb li a.event{width:42px;height:11px;background:url("../images/cubebirdge/lnb_event.png") no-repeat}
+.header .lnb li a.webzine{width:64px;height:11px;background:url("../images/cubebirdge/lnb_webzin.png") no-repeat}
+.header .lnb li ul a{text-indent:0 !important ;} /*상위에 상속된 text-indent 해제 */
+.header .lnb ul li div{position:absolute;width:100%;left:0; margin-top:20px;height:35px; background-color:#00b2c7;}
+.header .lnb ul li div>ul>li{float:left; font-size:14px; line-height:35px;}
+.header .lnb ul li div>ul>li>a{color:#FFF; font-weight:bold; margin: 0 25px;}
+.header .lnb ul li div>ul>li>div{background:#12151f;text-align:center; margin-top:0; width:auto; position: absolute; z-index:10}
+.header .lnb ul li div>ul>li>div>span{position:absolute;width:11px; height:6px; background:url("../images/cubebirdge/img_sub_uparrow.png") no-repeat; top:-6px; left:50px}
+.header .lnb ul li div>ul>li>div a{font-weight:bold; color:#00b2c7}
+/*3depth 메뉴 임시위치 */
+.header .lnb ul li div>ul>li div.ts{left:50%; margin-left:-70px;}
+
+
+/*intro*/
+/*
+    인트로에서 포지션시 주의사항은 li 자식요소에 포지션 absolute 가있음으로
+    .intro에 overflow:hidden 있다고 하더라도. 포지션상 부모로 지정해주지 않으면 동작하지 않음
+*/
+.intro {height:300px; overflow:hidden; margin-top:34px; position:relative}
+.intro ul{text-align: center;}
+.intro li{display:inline-block; *display:inline; *zoom:1}
+.intro li a{width:15px; height:15px; display:block; position:relative; z-index: 1; background:url("../images/cubebirdge/normal_btn_dottend_off.png") no-repeat; top:280px; left:-300px}
+.intro li.on a{background:url("../images/normal_btn_dottend_on.png") no-repeat}
+.intro li div {position:absolute; width:100%;top:0; left:0}
+.intro li div img{min-width:100%;}
+/*notice*/
+.intro .notice{height:100%; width:324px; background:url('../images/notice_Bg.png'); position:absolute; z-index:5; left:50%; margin-left:166px}
+.graysection{background:#e7e7e7; padding:22px 0; background:#e7e7e7 url("../images/bgl-bottom-line.png") repeat-x bottom}
+.whitesection{padding:22px 0;}
+
+
+/*title*/
+.h2_subtitle{margin-top:34px; background: #c2e254; heighgt:75px}
+.h2_subtitle .ct_wrap{line-height: 75px; }
+.h2_subtitle .ct_wrap img{vertical-align: middle;}
+
+.sub_layout{overflow: hidden}
+.sub_layout.depth2 .section{width:750px; float:left; min-height:600px;}
+.sub_layout.depth2 .aside{margin-left:750px; border-width:0 1px; border-style:solid; border-color:"#dedede"; min-height:600px;}
+
+.sub_layout .section .heading{height:60px; border-bottom:1px #dedede solid; line-height:60px}
+.sub_layout .section .heading h2{float:left; line-height:60px; height:60px;}
+.sub_layout .section .heading h2 img{vertical-align: middle; *padding-top:20px;}
+.sub_layout .section .heading .headSearch{float:right;}
+.sub_layout .section .heading .headSearch input[type="text"]{line-height:23px; border:1px #dedede solid; width:230px; height:28px; padding: 0 10px; color:#666}
+.sub_layout .section .heading .headSearch input[type="submit"]{width: 67px;height: 32px; border:0 none; text-indent: -9999px; background-image:url(../images/search.png);}
+
+#cover_story .section .list-option{height:60px; border:1px #F00 solid; line-height:60px;}
+#cover_story .section .select_style {float:left; margin-top:15px;}
+#cover_story .section .list-type{float:right}
+
+#cover_story .section .list-type a{color:#12151f}
+#cover_story .section .list-type a.ative{color:#00b2c7}
+#cover_story .section .list-type a.icon-grid{background:url("../images/webzine_coverstory_04_11.png") no-repeat ; padding-left:20px;}
+#cover_story .section .list-type a.icon-list{background:url("../images/webzine_coverstory_04_13.png") no-repeat ; padding-left:20px;}
+
+.footer{background-color:#e7e7e7}
+.footer .ct_wrap{height:55px; padding:22px 0}
+.footer .ct_wrap strong{padding-right:10px; font-size:15px}
+.footer .ct_wrap span{color:#999}
+.footer address{font-style:normal; padding:0 40px;}
+.footer address ul{ float:left;}
+.footer address .copy{float:right; color:#fff; }
+.footer address li{ float:left; }
+.footer address li span{border-left:1px #FFF solid; padding:0 10px;}
+.footer address li:first-child span{border:0 none;}
+.footer address li a{color:#fff; font-size:12px}
+.footer address{background-color: #12151f; height:58px; line-height:58px}
