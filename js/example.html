@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+    var userName="박해진";
+
+
+
+    var text=["처음에","얼마 후에","곧","바로"];
+    var randata=Math.random () *text.length;
+    var compledata=Math.floor (randata);
+    var first_data=compledata;
+
+
+    var text2=["잘생김","멋짐","훈훈함","섹시함","큐티함"];
+    randata=Math.random () *text.length;
+    compledata=Math.floor (randata);
+    var second_data=compledata;
+
+    var text3=["한숟갈","열숟갈","다섯숟갈","백숟갈"];
+    randata=Math.random () *text.length;
+    console.log(compledata);
+    compledata=Math.floor (randata);
+
+    var third_data=compledata;
+
+
+
+    document.write("신이 "+userName+"을 만들 때"+"<br/>"+text[first_data]+" "+text2[second_data]+" "+text3[third_data]);
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
